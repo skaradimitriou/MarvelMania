@@ -5,4 +5,4 @@ class MainResponseModel(
     val status: String,
     val copyright: String,
     val data: ResponseModel
-)
+) : MarvelModel

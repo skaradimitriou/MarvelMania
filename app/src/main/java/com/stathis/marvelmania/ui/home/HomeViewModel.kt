@@ -15,15 +15,15 @@ import kotlinx.coroutines.launch
 class HomeViewModel : ViewModel() {
 
     val data = MutableLiveData<MainResponseModel?>()
+    val isConnected = MutableLiveData<Boolean>()
 
-    init {
+    fun getResultsFromApi(){
         CoroutineScope(Dispatchers.IO).launch { callWebService() }
     }
 
     @WorkerThread
     suspend fun callWebService() {
-        val serviceData = ApiClient.getService().getSuperheroes(TS, API_KEY, FINAL_HASH_KEY).body()
+        val serviceData = ApiClient.getService().getCharacters(TS, API_KEY, FINAL_HASH_KEY).body()
         data.postValue(serviceData)
     }
-
 }
