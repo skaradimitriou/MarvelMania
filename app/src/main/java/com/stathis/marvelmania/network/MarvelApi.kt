@@ -1,6 +1,7 @@
 package com.stathis.marvelmania.network
 
-import com.stathis.marvelmania.models.MainResponseModel
+import com.stathis.marvelmania.models.characters.MainResponseModel
+import com.stathis.marvelmania.models.comics.ComicDataWrapper
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -12,21 +13,28 @@ interface MarvelApi {
      *  Characters Api Endpoints bellow
      */
 
-    @GET("v1/public/comics")
+    @GET("v1/public/characters")
     suspend fun getCharacters(
         @Query("ts") ts: String,
         @Query("apikey") apiKey: String,
         @Query("hash") hash: String
     ): Response<MainResponseModel>
 
-    @GET("v1/public/comics/{characterId}")
+    @GET("v1/public/characters/{characterId}")
     suspend fun getCharacterById(
-        @Query("characterId") id: String,
+        @Path("characterId") id: Int,
         @Query("ts") ts: String,
         @Query("apikey") apiKey: String,
         @Query("hash") hash: String
     ): Response<MainResponseModel>
 
+    @GET("v1/public/characters/{characterId}/comics")
+    suspend fun getCharacterComics(
+        @Path("characterId") id: Int,
+        @Query("ts") ts: String,
+        @Query("apikey") apiKey: String,
+        @Query("hash") hash: String
+    ): Response<ComicDataWrapper>
 
     /*
      *  Comics Api Endpoints bellow

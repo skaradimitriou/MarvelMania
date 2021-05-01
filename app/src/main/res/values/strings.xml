@@ -3,4 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
+    <string name="load_more">Load more</string>
+    <string name="iron_man">IRON MAN</string>
+
+    <string name="popular_comics_home">Popular Comics with the %s</string>
 </resources>

@@ -1,29 +1,69 @@
 package com.stathis.marvelmania.ui.home
 
+import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
+import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.annotation.WorkerThread
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
-import com.stathis.marvelmania.models.MainResponseModel
+import com.stathis.marvelmania.adapters.MainScreenAdapter
+import com.stathis.marvelmania.callbacks.ItemClickListener
+import com.stathis.marvelmania.models.characters.MarvelCharacter
+import com.stathis.marvelmania.models.characters.ResponseModel
+import com.stathis.marvelmania.models.comics.ComicDataContainer
+import com.stathis.marvelmania.models.comics.ComicDataWrapper
 import com.stathis.marvelmania.network.ApiClient
 import com.stathis.marvelmania.util.API_KEY
 import com.stathis.marvelmania.util.FINAL_HASH_KEY
+import com.stathis.marvelmania.util.MarvelHeroGenerator
 import com.stathis.marvelmania.util.TS
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel() : ViewModel(), ItemClickListener {
 
-    val data = MutableLiveData<MainResponseModel?>()
-    val isConnected = MutableLiveData<Boolean>()
+    val data = MutableLiveData<ResponseModel?>()
+    val comics = MutableLiveData<ComicDataContainer?>()
+    private val characterId = MarvelHeroGenerator.getRandomHero()
+    val adapter = MainScreenAdapter(this)
 
-    fun getResultsFromApi(){
-        CoroutineScope(Dispatchers.IO).launch { callWebService() }
+    fun getResultsFromApi() {
+        CoroutineScope(Dispatchers.IO).launch {
+            callWebService()
+            getCharacterComics()
+        }
     }
 
     @WorkerThread
     suspend fun callWebService() {
-        val serviceData = ApiClient.getService().getCharacters(TS, API_KEY, FINAL_HASH_KEY).body()
-        data.postValue(serviceData)
+        val serviceData = ApiClient.getService().getCharacterById(characterId,TS, API_KEY, FINAL_HASH_KEY).body()
+        data.postValue(serviceData?.data)
+    }
+
+    @WorkerThread
+    suspend fun getCharacterComics() {
+        val serviceData = ApiClient.getService().getCharacterComics(characterId,TS, API_KEY, FINAL_HASH_KEY).body()
+        comics.postValue(serviceData?.data)
+    }
+
+    fun observeData(owner : LifecycleOwner){
+        comics.observe(owner, Observer {
+            Log.d("",it.toString())
+            adapter.submitList(it?.results)
+        })
+    }
+
+    override fun onItemClick(view: View) {
+        when (view.tag) {
+            is MarvelCharacter -> {}
+        }
     }
 }
