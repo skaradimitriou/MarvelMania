@@ -2,6 +2,9 @@ package com.stathis.marvelmania.network
 
 import com.stathis.marvelmania.models.characters.MainResponseModel
 import com.stathis.marvelmania.models.comics.ComicDataWrapper
+import com.stathis.marvelmania.models.events.EventDataWrapper
+import com.stathis.marvelmania.models.series.SeriesDataWrapper
+import com.stathis.marvelmania.models.stories.StoryDataWrapper
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -36,6 +39,30 @@ interface MarvelApi {
         @Query("hash") hash: String
     ): Response<ComicDataWrapper>
 
+    @GET("v1/public/characters/{characterId}/events")
+    suspend fun getCharacterEvents(
+        @Path("characterId") id: Int,
+        @Query("ts") ts: String,
+        @Query("apikey") apiKey: String,
+        @Query("hash") hash: String
+    ): Response<EventDataWrapper>
+
+    @GET("v1/public/characters/{characterId}/series")
+    suspend fun getCharacterSeries(
+        @Path("characterId") id: Int,
+        @Query("ts") ts: String,
+        @Query("apikey") apiKey: String,
+        @Query("hash") hash: String
+    ): Response<SeriesDataWrapper>
+
+    @GET("v1/public/characters/{characterId}/stories")
+    suspend fun getCharacterStories(
+        @Path("characterId") id: Int,
+        @Query("ts") ts: String,
+        @Query("apikey") apiKey: String,
+        @Query("hash") hash: String
+    ): Response<StoryDataWrapper>
+
     /*
      *  Comics Api Endpoints bellow
      */
@@ -49,7 +76,7 @@ interface MarvelApi {
 
     @GET("v1/public/comics/{comicId}/characters")
     suspend fun getCharactersFromComicId(
-        @Path("comicId") comidId : Int,
+        @Path("comicId") comidId: Int,
         @Query("ts") ts: String,
         @Query("apikey") apiKey: String,
         @Query("hash") hash: String

@@ -26,19 +26,40 @@
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginTop="@dimen/margin_16"
-        android:src="@drawable/marvel_logo"
         android:contentDescription="@string/app_name"
+        android:src="@drawable/marvel_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/home_menu_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:paddingStart="@dimen/padding_10"
+        android:src="@drawable/menu_icon"
+        app:layout_constraintBottom_toBottomOf="@id/marvel_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/marvel_logo" />
+
+    <ImageView
+        android:id="@+id/home_search_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:paddingEnd="@dimen/padding_10"
+        android:src="@drawable/search_icon"
+        app:layout_constraintBottom_toBottomOf="@id/marvel_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/marvel_logo" />
 
     <TextView
         android:id="@+id/home_popular_header"
         style="@style/homepage_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/padding_10"
-        android:paddingTop="@dimen/padding_20"
+        android:padding="@dimen/padding_10"
         app:layout_constraintBottom_toBottomOf="@id/home_comic_header"
         app:layout_constraintTop_toTopOf="@id/marvel_logo"
         tools:text="@string/iron_man" />
@@ -48,6 +69,15 @@
         android:layout_height="0dp"
         android:background="@drawable/home_transparent_bg"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_popular_header" />
+
+    <Button
+        android:id="@+id/learn_more_btn"
+        style="@style/red_home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="@dimen/padding_10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_popular_header" />
 

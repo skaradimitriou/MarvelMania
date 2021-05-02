@@ -1,14 +1,8 @@
 package com.stathis.marvelmania.ui.home
 
-import android.app.Application
-import android.content.Context
-import android.net.ConnectivityManager
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.annotation.WorkerThread
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -18,7 +12,6 @@ import com.stathis.marvelmania.callbacks.ItemClickListener
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.characters.ResponseModel
 import com.stathis.marvelmania.models.comics.ComicDataContainer
-import com.stathis.marvelmania.models.comics.ComicDataWrapper
 import com.stathis.marvelmania.network.ApiClient
 import com.stathis.marvelmania.util.API_KEY
 import com.stathis.marvelmania.util.FINAL_HASH_KEY

@@ -6,5 +6,7 @@
     <string name="load_more">Load more</string>
     <string name="iron_man">IRON MAN</string>
 
-    <string name="popular_comics_home">Popular Comics with the %s</string>
+    <string name="popular_comics_home">Popular Comics with the <b>%s</b></string>
+    <string name="search">Search</string>
+
 </resources>

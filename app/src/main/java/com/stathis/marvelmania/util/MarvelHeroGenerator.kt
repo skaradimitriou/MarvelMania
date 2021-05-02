@@ -13,7 +13,7 @@ object MarvelHeroGenerator {
         PopularMarvelHero("Hulk", 1009351),
         PopularMarvelHero("Hawkeye", 1009338),
         PopularMarvelHero("Thor", 1009664),
-        PopularMarvelHero("Thanos", 1009652),
+        PopularMarvelHero("Thanos", 1009652)
     )
 
     fun getPopularHeroList(): List<PopularMarvelHero> {
@@ -21,7 +21,7 @@ object MarvelHeroGenerator {
     }
 
     fun getRandomHero(): Int {
-        val randomNumber = (0..popularHeroList.size).random()
+        val randomNumber = popularHeroList.indices.random()
         return popularHeroList.get(randomNumber).id
     }
 }
