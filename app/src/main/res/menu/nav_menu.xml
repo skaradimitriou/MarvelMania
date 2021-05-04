@@ -2,16 +2,69 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/nav_home"
-        android:title="@string/home"
-        app:showAsAction="always"
-        android:icon="@drawable/home_icon"/>
+    <group android:checkableBehavior="single">
 
-    <item
-        android:id="@+id/nav_search"
-        android:title="@string/search"
-        app:showAsAction="always"
-        android:icon="@drawable/search_icon"/>
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home_icon"
+            android:title="@string/home"
+            app:showAsAction="always" />
+
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/search_icon"
+            android:title="@string/nav_search"
+            app:showAsAction="always" />
+
+    </group>
+
+    <item android:title="@string/main_categories">
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_comics"
+                    android:icon="@drawable/comic_book_icon"
+                    android:title="@string/nav_comics"
+                    app:showAsAction="always" />
+
+                <item
+                    android:id="@+id/nav_events"
+                    android:icon="@drawable/event_icon"
+                    android:title="@string/nav_events"
+                    app:showAsAction="always" />
+
+                <item
+                    android:id="@+id/nav_stories"
+                    android:icon="@drawable/story_icon"
+                    android:title="@string/nav_stories"
+                    app:showAsAction="always" />
+
+
+            </group>
+
+        </menu>
+
+    </item>
+
+    <item android:title="@string/exit_the_app">
+
+        <menu>
+
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/logout_icon"
+                    android:title="@string/logout"
+                    app:showAsAction="always" />
+
+            </group>
+
+        </menu>
+
+    </item>
+
 
 </menu>

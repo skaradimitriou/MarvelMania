@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/marvel_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/margin_16"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/marvel_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/home_menu_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:paddingStart="@dimen/padding_10"
+        android:src="@drawable/menu_icon"
+        app:layout_constraintBottom_toBottomOf="@id/marvel_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/marvel_logo" />
+
+    <ImageView
+        android:id="@+id/home_search_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:paddingEnd="@dimen/padding_10"
+        android:src="@drawable/search_icon_two"
+        app:layout_constraintBottom_toBottomOf="@id/marvel_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/marvel_logo" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

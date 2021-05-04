@@ -7,6 +7,8 @@
     android:background="@color/dark_bg"
     tools:context=".ui.home.HomeFragment">
 
+
+
     <ImageView
         android:id="@+id/home_popular_img"
         android:layout_width="match_parent"
@@ -21,38 +23,10 @@
         android:alpha="0.3"
         android:background="@color/dark_bg" />
 
-    <ImageView
-        android:id="@+id/marvel_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="@dimen/margin_16"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/marvel_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/home_menu_icon"
-        android:layout_width="wrap_content"
+    <include android:id="@+id/marvel_toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:paddingStart="@dimen/padding_10"
-        android:src="@drawable/menu_icon"
-        app:layout_constraintBottom_toBottomOf="@id/marvel_logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/marvel_logo" />
-
-    <ImageView
-        android:id="@+id/home_search_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name"
-        android:paddingEnd="@dimen/padding_10"
-        android:src="@drawable/search_icon"
-        app:layout_constraintBottom_toBottomOf="@id/marvel_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/marvel_logo" />
+        layout="@layout/custom_marvel_toolbar"/>
 
     <TextView
         android:id="@+id/home_popular_header"
@@ -61,7 +35,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_10"
         app:layout_constraintBottom_toBottomOf="@id/home_comic_header"
-        app:layout_constraintTop_toTopOf="@id/marvel_logo"
+        app:layout_constraintTop_toTopOf="@id/marvel_toolbar"
         tools:text="@string/iron_man" />
 
     <View

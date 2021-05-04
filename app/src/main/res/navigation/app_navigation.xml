@@ -17,6 +17,15 @@
         <action
             android:id="@+id/action_search"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_comics"
+            app:destination="@id/comicsFragment" />
+        <action
+            android:id="@+id/action_events"
+            app:destination="@id/eventsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_storiesFragment"
+            app:destination="@id/storiesFragment" />
     </fragment>
 
     <fragment
@@ -35,5 +44,22 @@
         android:name="com.stathis.marvelmania.ui.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/comicsFragment"
+        android:name="com.stathis.marvelmania.ui.comics.ComicsFragment"
+        android:label="fragment_comics"
+        tools:layout="@layout/fragment_comics" />
+
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.stathis.marvelmania.ui.events.EventsFragment"
+        android:label="fragment_events"
+        tools:layout="@layout/fragment_events" />
+    <fragment
+        android:id="@+id/storiesFragment"
+        android:name="com.stathis.marvelmania.ui.stories.StoriesFragment"
+        android:label="fragment_stories"
+        tools:layout="@layout/fragment_stories" />
 
 </navigation>

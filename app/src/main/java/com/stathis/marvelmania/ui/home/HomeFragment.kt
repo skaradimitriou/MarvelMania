@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelFragment
 import com.stathis.marvelmania.models.characters.MarvelCharacter
+import kotlinx.android.synthetic.main.custom_marvel_toolbar.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : MarvelFragment(R.layout.fragment_home) {
@@ -27,14 +28,16 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
 
         home_comic_recycler.adapter = viewModel.adapter
 
-        home_menu_icon.setOnClickListener {
-            //this should toggle the menu
-            val drawer = activity?.findViewById(R.id.drawer_layout) as DrawerLayout
-            drawer.openDrawer(GravityCompat.START)
-        }
+        marvel_toolbar.apply {
+            home_menu_icon.setOnClickListener {
+                //toggle menu
+                val drawer = activity?.findViewById(R.id.drawer_layout) as DrawerLayout
+                drawer.openDrawer(GravityCompat.START)
+            }
 
-        home_search_icon.setOnClickListener {
-            goToSearch()
+            home_search_icon.setOnClickListener {
+                goToSearch()
+            }
         }
 
         learn_more_btn.setOnClickListener{

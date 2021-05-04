@@ -7,10 +7,15 @@
     android:background="@color/marvel_red"
     tools:context=".ui.search.SearchFragment">
 
+    <include android:id="@+id/marvel_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/custom_marvel_toolbar"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
+        android:text="@string/nav_search"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

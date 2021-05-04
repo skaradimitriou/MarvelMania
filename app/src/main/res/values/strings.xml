@@ -7,6 +7,17 @@
     <string name="iron_man">IRON MAN</string>
 
     <string name="popular_comics_home">Popular Comics with the <b>%s</b></string>
-    <string name="search">Search</string>
+
+
+    <!-- Menu -->
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="main_categories">Main Categories</string>
+    <string name="nav_comics">Comics</string>
+    <string name="nav_events">Events</string>
+    <string name="nav_stories">Stories</string>
+    <string name="exit_the_app">Exit the app</string>
+    <string name="logout">Log Out</string>
+
 
 </resources>

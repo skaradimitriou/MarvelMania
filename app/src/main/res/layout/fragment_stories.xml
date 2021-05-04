@@ -3,20 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#055"
+    android:background="@color/yellow"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.events.EventsFragment">
+    tools:context=".ui.stories.StoriesFragment">
 
     <include android:id="@+id/marvel_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/custom_marvel_toolbar"/>
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nav_events"
+        android:text="@string/nav_stories"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

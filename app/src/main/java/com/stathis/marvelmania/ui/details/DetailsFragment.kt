@@ -27,6 +27,8 @@ class DetailsFragment : MarvelFragment(R.layout.fragment_details) {
             viewModel.getCharacterData()
         }
 
+        //recycler
+
         viewModel.comics.observe(this, Observer {
             Log.d("",it.toString())
             comics_fragment_header.text = "COMICS : ${it?.results?.size}"
@@ -49,6 +51,6 @@ class DetailsFragment : MarvelFragment(R.layout.fragment_details) {
     }
 
     override fun stopOperations() {
-        //
+        viewModel.removeObservers(this)
     }
 }

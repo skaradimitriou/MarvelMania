@@ -9,9 +9,9 @@
         android:id="@+id/home_hero_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="@dimen/padding_10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Hero Name" />
+        tools:text="@string/app_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.stathis.marvelmania.ui.details
 
 import androidx.annotation.WorkerThread
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.stathis.marvelmania.models.characters.ResponseModel
@@ -25,11 +26,11 @@ class DetailsViewModel : ViewModel() {
     val stories = MutableLiveData<StoryDataContainer?>()
     var charactedId = 0
 
-    fun getCharacterData() {
+    fun getCharacterData()  {
         CoroutineScope(Dispatchers.IO).launch {
-            getCharacterSeries()
             getCharacterComics()
             getCharacterStories()
+            getCharacterSeries()
             getCharacterEvents()
         }
     }
@@ -56,5 +57,12 @@ class DetailsViewModel : ViewModel() {
     suspend fun getCharacterSeries() {
         val serviceData = ApiClient.getService().getCharacterSeries(charactedId,TS, API_KEY, FINAL_HASH_KEY).body()
         series.postValue(serviceData?.data)
+    }
+
+    fun removeObservers(owner : LifecycleOwner) {
+        comics.removeObservers(owner)
+        events.removeObservers(owner)
+        series.removeObservers(owner)
+        stories.removeObservers(owner)
     }
 }
