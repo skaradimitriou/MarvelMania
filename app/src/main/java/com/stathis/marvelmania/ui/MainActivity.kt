@@ -17,8 +17,7 @@ class MainActivity : MarvelActivity(R.layout.activity_main),
     private lateinit var navController: NavController
 
     override fun initLayout() {
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         navController = navHostFragment.navController
         findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
 

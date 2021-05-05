@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#03f"
     tools:context=".ui.comics.ComicsFragment">
 
-    <include android:id="@+id/marvel_toolbar"
+    <include
+        android:id="@+id/marvel_toolbar"
+        layout="@layout/custom_marvel_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/custom_marvel_toolbar"/>
+        android:layout_height="wrap_content" />
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/hero_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="@dimen/padding_10"
+        android:layout_marginEnd="@dimen/padding_10"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding_10"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/marvel_toolbar" />
 
     <TextView
+        android:id="@+id/comic_counter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/nav_comics"

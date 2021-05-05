@@ -4,6 +4,7 @@ import com.stathis.marvelmania.models.characters.MainResponseModel
 import com.stathis.marvelmania.models.comics.ComicDataWrapper
 import com.stathis.marvelmania.models.events.EventDataWrapper
 import com.stathis.marvelmania.models.series.SeriesDataWrapper
+import com.stathis.marvelmania.models.stories.StoryDataContainer
 import com.stathis.marvelmania.models.stories.StoryDataWrapper
 import retrofit2.Response
 import retrofit2.http.GET
@@ -72,7 +73,7 @@ interface MarvelApi {
         @Query("ts") ts: String,
         @Query("apikey") apiKey: String,
         @Query("hash") hash: String
-    ): Response<MainResponseModel>
+    ): Response<ComicDataWrapper>
 
     @GET("v1/public/comics/{comicId}/characters")
     suspend fun getCharactersFromComicId(
