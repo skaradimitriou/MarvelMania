@@ -3,6 +3,7 @@ package com.stathis.marvelmania.util
 import java.math.BigInteger
 import java.security.MessageDigest
 
+val TAG = "MARVEL APP"
 val BASE_URL = "https://gateway.marvel.com/"
 val TS = "6"
 val API_KEY = "62603ee7f9eb24e366fb466a32fe04ec"

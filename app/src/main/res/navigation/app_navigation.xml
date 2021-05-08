@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_homeFragment_to_storiesFragment"
             app:destination="@id/storiesFragment" />
+        <action
+            android:id="@+id/comicDetails"
+            app:destination="@id/comicResultsFragment" />
     </fragment>
 
     <fragment
@@ -61,5 +64,14 @@
         android:name="com.stathis.marvelmania.ui.stories.StoriesFragment"
         android:label="fragment_stories"
         tools:layout="@layout/fragment_stories" />
+    <fragment
+        android:id="@+id/comicResultsFragment"
+        android:name="com.stathis.marvelmania.ui.comicDetails.ComicResultsFragment"
+        android:label="fragment_comic_results"
+        tools:layout="@layout/fragment_comic_results" >
+        <argument
+            android:name="comic"
+            app:argType="com.stathis.marvelmania.models.comics.Comic" />
+    </fragment>
 
 </navigation>

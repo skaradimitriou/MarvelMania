@@ -11,7 +11,6 @@ import com.stathis.marvelmania.abstraction.MarvelFragment
 import com.stathis.marvelmania.adapters.ComicAdapter
 import kotlinx.android.synthetic.main.custom_marvel_toolbar.*
 import kotlinx.android.synthetic.main.fragment_comics.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.marvel_toolbar
 
 class ComicsFragment : MarvelFragment(R.layout.fragment_comics) {
@@ -36,7 +35,7 @@ class ComicsFragment : MarvelFragment(R.layout.fragment_comics) {
         }
 
         viewModel.comics.observe(this, Observer {
-            Log.d("",it.toString())
+            Log.d("", it.toString())
             val adapter = ComicAdapter()
             hero_viewpager.adapter = adapter
             adapter.submitList(it.results)
@@ -45,6 +44,6 @@ class ComicsFragment : MarvelFragment(R.layout.fragment_comics) {
     }
 
     override fun stopOperations() {
-
+        viewModel.comics.removeObservers(this)
     }
 }

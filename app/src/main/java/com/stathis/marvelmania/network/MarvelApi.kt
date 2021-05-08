@@ -14,11 +14,19 @@ import retrofit2.http.Query
 interface MarvelApi {
 
     /*
-     *  Characters Api Endpoints bellow
+     *  Marvel Characters Api Endpoints
      */
 
     @GET("v1/public/characters")
     suspend fun getCharacters(
+        @Query("ts") ts: String,
+        @Query("apikey") apiKey: String,
+        @Query("hash") hash: String
+    ): Response<MainResponseModel>
+
+    @GET("v1/public/characters")
+    suspend fun getCharacterByName(
+        @Query("name") characterName : String,
         @Query("ts") ts: String,
         @Query("apikey") apiKey: String,
         @Query("hash") hash: String

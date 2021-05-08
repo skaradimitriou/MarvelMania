@@ -11,6 +11,7 @@ import com.stathis.marvelmania.adapters.MainScreenAdapter
 import com.stathis.marvelmania.callbacks.ItemClickListener
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.characters.ResponseModel
+import com.stathis.marvelmania.models.comics.Comic
 import com.stathis.marvelmania.models.comics.ComicDataContainer
 import com.stathis.marvelmania.network.ApiClient
 import com.stathis.marvelmania.util.API_KEY
@@ -27,6 +28,7 @@ class HomeViewModel() : ViewModel(), ItemClickListener {
     val comics = MutableLiveData<ComicDataContainer?>()
     private val characterId = MarvelHeroGenerator.getRandomHero()
     val adapter = MainScreenAdapter(this)
+    private lateinit var callback : ComicClickListener
 
     fun getResultsFromApi() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -47,7 +49,8 @@ class HomeViewModel() : ViewModel(), ItemClickListener {
         comics.postValue(serviceData?.data)
     }
 
-    fun observeData(owner : LifecycleOwner){
+    fun observeData(owner : LifecycleOwner,callback : ComicClickListener){
+        this.callback = callback
         comics.observe(owner, Observer {
             Log.d("",it.toString())
             adapter.submitList(it?.results)
@@ -56,7 +59,7 @@ class HomeViewModel() : ViewModel(), ItemClickListener {
 
     override fun onItemClick(view: View) {
         when (view.tag) {
-            is MarvelCharacter -> {}
+            is Comic -> callback.onComicClick(view.tag as Comic)
         }
     }
 }
