@@ -1,10 +1,13 @@
 package com.stathis.marvelmania.ui.search
 
+import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.stathis.marvelmania.adapters.SearchAdapter
+import com.stathis.marvelmania.callbacks.CharacterClickListener
+import com.stathis.marvelmania.callbacks.ItemClickListener
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.characters.ResponseModel
 import com.stathis.marvelmania.network.ApiClient
@@ -15,10 +18,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SearchViewModel : ViewModel() {
+class SearchViewModel : ViewModel(),ItemClickListener {
 
-    val adapter = SearchAdapter()
+    val adapter = SearchAdapter(this)
     val data = MutableLiveData<ResponseModel>()
+    private lateinit var callback : CharacterClickListener
 
     fun getResultsForCharacter(query: String) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -33,9 +37,16 @@ class SearchViewModel : ViewModel() {
         data.postValue(serviceData?.data)
     }
 
-    fun observeData(owner: LifecycleOwner) {
+    fun observeData(owner: LifecycleOwner, callback : CharacterClickListener) {
+        this.callback = callback
         data.observe(owner, Observer {
             it?.let { adapter.submitList(it.results) }
         })
+    }
+
+    override fun onItemClick(view: View) {
+        when(view.tag){
+            is MarvelCharacter -> callback.onCharacterClick(view.tag as MarvelCharacter)
+        }
     }
 }

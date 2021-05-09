@@ -7,8 +7,12 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelFragment
+import com.stathis.marvelmania.callbacks.CharacterClickListener
+import com.stathis.marvelmania.models.characters.MarvelCharacter
+import com.stathis.marvelmania.ui.home.HomeFragmentDirections
 import com.stathis.marvelmania.util.TAG
 import kotlinx.android.synthetic.main.custom_marvel_toolbar.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -59,10 +63,19 @@ class SearchFragment : MarvelFragment(R.layout.fragment_search) {
             //hide progressbar
         })
 
-        viewModel.observeData(this)
+        viewModel.observeData(this, object : CharacterClickListener {
+            override fun onCharacterClick(character: MarvelCharacter) {
+                goToDetails(character)
+            }
+        })
     }
 
     override fun stopOperations() {
         viewModel.data.removeObservers(this)
+    }
+
+    private fun goToDetails(character: MarvelCharacter) {
+        val test = HomeFragmentDirections.actionDetails(character)
+        Navigation.findNavController(requireView()).navigate(test)
     }
 }

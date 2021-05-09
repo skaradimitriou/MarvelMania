@@ -8,8 +8,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.stathis.marvelmania.adapters.MainScreenAdapter
+import com.stathis.marvelmania.callbacks.ComicClickListener
 import com.stathis.marvelmania.callbacks.ItemClickListener
-import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.characters.ResponseModel
 import com.stathis.marvelmania.models.comics.Comic
 import com.stathis.marvelmania.models.comics.ComicDataContainer

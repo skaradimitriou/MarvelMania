@@ -2,7 +2,6 @@ package com.stathis.marvelmania.ui.home
 
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
@@ -10,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelFragment
+import com.stathis.marvelmania.callbacks.ComicClickListener
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.comics.Comic
 import kotlinx.android.synthetic.main.custom_marvel_toolbar.*
@@ -66,7 +66,7 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
             }
         })
 
-        viewModel.observeData(this,object : ComicClickListener{
+        viewModel.observeData(this,object : ComicClickListener {
             override fun onComicClick(comic: Comic) {
                 val action = HomeFragmentDirections.comicDetails(comic)
                 Navigation.findNavController(requireView()).navigate(action)
