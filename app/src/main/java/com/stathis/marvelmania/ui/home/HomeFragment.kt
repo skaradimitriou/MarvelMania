@@ -7,11 +7,13 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.bumptech.glide.Glide
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelFragment
 import com.stathis.marvelmania.callbacks.ComicClickListener
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.comics.Comic
+import com.stathis.marvelmania.util.getIncrediblePhoto
 import kotlinx.android.synthetic.main.custom_marvel_toolbar.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -58,11 +60,10 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
             it?.let {
                 character = it.results.first()
                 home_popular_header.text = it.results.first().name
-                home_comic_header.text =
-                    getString(R.string.popular_comics_home, it.results.first().name)
-                val imagePath =
-                    "${it.results.first().thumbnail.path}/portrait_incredible.${it.results.first().thumbnail.extension}"
-                //Glide.with(this).load(imagePath).into(home_popular_img)
+                home_comic_header.text = getString(R.string.popular_comics_home, it.results.first().name)
+
+                val imagePath = getIncrediblePhoto(it.results.first().thumbnail.path,it.results.first().thumbnail.extension)
+                Glide.with(this).load(imagePath).into(home_popular_img)
             }
         })
 

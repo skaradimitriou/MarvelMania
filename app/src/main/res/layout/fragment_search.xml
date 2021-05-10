@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/marvel_red"
+    android:background="#efefef"
     tools:context=".ui.search.SearchFragment">
 
     <include
         android:id="@+id/marvel_toolbar"
-        layout="@layout/custom_marvel_toolbar"
+        layout="@layout/marvel_toolbar_dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

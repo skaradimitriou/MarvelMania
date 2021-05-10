@@ -11,7 +11,7 @@ import com.stathis.marvelmania.models.MarvelModel
 class SearchAdapter(private val callback : ItemClickListener) : ListAdapter<MarvelModel, SearchViewHolder>(DiffUtilClass<MarvelModel>()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.holder_marvel_char_item,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.holder_marvel_character_item,parent,false)
         return SearchViewHolder(view,callback)
     }
 

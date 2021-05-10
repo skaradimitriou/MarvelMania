@@ -16,3 +16,11 @@ fun generateMd5HashKey(input: String): String {
     val md = MessageDigest.getInstance("MD5")
     return BigInteger(1, md.digest(input.toByteArray())).toString(16).padStart(32, '0')
 }
+
+fun getMediumPhoto(thumbnail : String, extension : String) : String {
+    return "$thumbnail/portrait_medium.$extension"
+}
+
+fun getIncrediblePhoto(thumbnail : String, extension : String) : String {
+    return "$thumbnail/portrait_incredible.$extension"
+}

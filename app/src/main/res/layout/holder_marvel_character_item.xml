@@ -3,15 +3,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/padding_10">
+
+    <View
+        android:id="@+id/holder_character_img_center"
+        android:layout_width="@dimen/dimen_1"
+        android:layout_height="@dimen/dimen_1"
+        app:layout_constraintBottom_toBottomOf="@id/holder_character_img"
+        app:layout_constraintEnd_toEndOf="@id/holder_character_img"
+        app:layout_constraintStart_toStartOf="@id/holder_character_img"
+        app:layout_constraintTop_toTopOf="@id/holder_character_img" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/home_hero_name"
+        app:layout_constraintTop_toTopOf="@id/holder_character_img_center" />
+
+    <ImageView
+        android:id="@+id/holder_character_img"
+        android:layout_width="@dimen/image_80"
+        android:layout_height="@dimen/image_100"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/drawer_bg_marvel" />
 
     <TextView
         android:id="@+id/home_hero_name"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_10"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/black"
+        android:textSize="@dimen/h2_header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/holder_character_arrow"
+        app:layout_constraintStart_toEndOf="@id/holder_character_img"
         tools:text="@string/app_name" />
+
+    <ImageView
+        android:id="@+id/holder_character_arrow"
+        android:layout_width="@dimen/image_40"
+        android:layout_height="@dimen/image_40"
+        android:background="@drawable/arrow_right"
+        android:backgroundTint="@color/marvel_red"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@id/home_hero_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/home_hero_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
