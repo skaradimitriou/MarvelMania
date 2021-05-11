@@ -7,8 +7,6 @@
     android:background="@color/dark_bg"
     tools:context=".ui.home.HomeFragment">
 
-
-
     <ImageView
         android:id="@+id/home_popular_img"
         android:layout_width="match_parent"

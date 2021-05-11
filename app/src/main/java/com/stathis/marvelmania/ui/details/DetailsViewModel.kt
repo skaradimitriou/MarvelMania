@@ -4,6 +4,8 @@ import androidx.annotation.WorkerThread
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.stathis.marvelmania.adapters.DetailsAdapter
+import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.characters.ResponseModel
 import com.stathis.marvelmania.models.comics.ComicDataContainer
 import com.stathis.marvelmania.models.events.EventDataContainer
@@ -25,6 +27,12 @@ class DetailsViewModel : ViewModel() {
     val series = MutableLiveData<SeriesDataContainer?>()
     val stories = MutableLiveData<StoryDataContainer?>()
     var charactedId = 0
+
+    val adapter = DetailsAdapter()
+
+    fun bindCharacterData(character : MarvelCharacter){
+        adapter.submitList(listOf(character))
+    }
 
     fun getCharacterData()  {
         CoroutineScope(Dispatchers.IO).launch {

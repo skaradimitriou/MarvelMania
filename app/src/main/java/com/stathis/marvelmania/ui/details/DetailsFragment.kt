@@ -24,28 +24,10 @@ class DetailsFragment : MarvelFragment(R.layout.fragment_details) {
 
             viewModel.charactedId = character.id
 
-            viewModel.getCharacterData()
+            viewModel.bindCharacterData(character)
         }
 
-        viewModel.comics.observe(this, Observer {
-            Log.d("",it.toString())
-            comics_fragment_header.text = "COMICS : ${it?.results?.size}"
-        })
-
-        viewModel.events.observe(this, Observer {
-            Log.d("",it.toString())
-            events_fragment_header.text = "EVENTS : ${it?.results?.size}"
-        })
-
-        viewModel.series.observe(this, Observer {
-            Log.d("",it.toString())
-            series_fragment_header.text = "SERIES : ${it?.results?.size}"
-        })
-
-        viewModel.stories.observe(this, Observer {
-            Log.d("",it.toString())
-            stories_fragment_header.text = "STORIES : ${it?.results?.size}"
-        })
+        details_screen_recycler.adapter = viewModel.adapter
     }
 
     override fun stopOperations() {
