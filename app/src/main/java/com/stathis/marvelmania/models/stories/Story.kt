@@ -1,6 +1,7 @@
 package com.stathis.marvelmania.models.stories
 
 import android.os.Parcelable
+import com.stathis.marvelmania.models.MarvelModel
 import com.stathis.marvelmania.models.characters.ImageModel
 import kotlinx.android.parcel.Parcelize
 
@@ -14,4 +15,4 @@ class Story(
     val format : String,
     val pageCount : Int,
     val thumbnail: ImageModel
-) : Parcelable
+) : MarvelModel,Parcelable

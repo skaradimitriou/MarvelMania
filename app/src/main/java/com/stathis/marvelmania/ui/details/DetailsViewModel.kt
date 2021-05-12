@@ -3,8 +3,10 @@ package com.stathis.marvelmania.ui.details
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.stathis.marvelmania.adapters.DetailsAdapter
+import com.stathis.marvelmania.models.MarvelModel
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.characters.ResponseModel
 import com.stathis.marvelmania.models.comics.ComicDataContainer
@@ -30,44 +32,29 @@ class DetailsViewModel : ViewModel() {
 
     val adapter = DetailsAdapter()
 
-    fun bindCharacterData(character : MarvelCharacter){
+    init {
+        getCharacterData()
+    }
+
+    fun bindCharacterData(character: MarvelCharacter) {
         adapter.submitList(listOf(character))
     }
 
-    fun getCharacterData()  {
+    fun getCharacterData() {
         CoroutineScope(Dispatchers.IO).launch {
-            getCharacterComics()
             getCharacterStories()
-            getCharacterSeries()
-            getCharacterEvents()
         }
     }
 
     @WorkerThread
-    suspend fun getCharacterEvents() {
-        val serviceData = ApiClient.getService().getCharacterEvents(charactedId,TS, API_KEY, FINAL_HASH_KEY).body()
-        events.postValue(serviceData?.data)
-    }
-
-    @WorkerThread
     suspend fun getCharacterStories() {
-        val serviceData = ApiClient.getService().getCharacterStories(charactedId,TS, API_KEY, FINAL_HASH_KEY).body()
+        val serviceData =
+            ApiClient.getService().getCharacterStories(charactedId, TS, API_KEY, FINAL_HASH_KEY)
+                .body()
         stories.postValue(serviceData?.data)
     }
 
-    @WorkerThread
-    suspend fun getCharacterComics() {
-        val serviceData = ApiClient.getService().getCharacterComics(charactedId,TS, API_KEY, FINAL_HASH_KEY).body()
-        comics.postValue(serviceData?.data)
-    }
-
-    @WorkerThread
-    suspend fun getCharacterSeries() {
-        val serviceData = ApiClient.getService().getCharacterSeries(charactedId,TS, API_KEY, FINAL_HASH_KEY).body()
-        series.postValue(serviceData?.data)
-    }
-
-    fun removeObservers(owner : LifecycleOwner) {
+    fun removeObservers(owner: LifecycleOwner) {
         comics.removeObservers(owner)
         events.removeObservers(owner)
         series.removeObservers(owner)

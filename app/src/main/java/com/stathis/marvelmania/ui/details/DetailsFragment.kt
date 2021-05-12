@@ -28,6 +28,8 @@ class DetailsFragment : MarvelFragment(R.layout.fragment_details) {
         }
 
         details_screen_recycler.adapter = viewModel.adapter
+
+        viewModel.observeData(this)
     }
 
     override fun stopOperations() {
