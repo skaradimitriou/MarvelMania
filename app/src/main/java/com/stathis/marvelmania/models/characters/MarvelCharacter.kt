@@ -9,7 +9,7 @@ class MarvelCharacter(
     val id: Int,
     val name: String,
     val issueDescription: Int,
-    val description: String,
+    val description : String,
     val format: String,
     val thumbnail: ImageModel,
     val comics: ComicList,

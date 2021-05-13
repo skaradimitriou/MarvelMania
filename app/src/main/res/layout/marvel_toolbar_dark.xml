@@ -24,7 +24,7 @@
         android:background="@drawable/menu_icon"
         android:backgroundTint="@color/black"
         android:contentDescription="@string/app_name"
-        android:paddingStart="@dimen/padding_10"
+        android:layout_marginStart="@dimen/padding_10"
         app:layout_constraintBottom_toBottomOf="@id/marvel_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/marvel_logo" />

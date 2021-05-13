@@ -22,14 +22,13 @@ class DetailsFragment : MarvelFragment(R.layout.fragment_details) {
         arguments?.let {
             character = DetailsFragmentArgs.fromBundle(it).character
 
+            Log.d("",character.toString())
             viewModel.charactedId = character.id
 
             viewModel.bindCharacterData(character)
         }
 
         details_screen_recycler.adapter = viewModel.adapter
-
-        viewModel.observeData(this)
     }
 
     override fun stopOperations() {
