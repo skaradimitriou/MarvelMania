@@ -1,5 +1,6 @@
-package com.stathis.marvelmania.ui.home
+package com.stathis.marvelmania.features.home
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.core.view.GravityCompat
@@ -8,11 +9,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelFragment
 import com.stathis.marvelmania.callbacks.ComicClickListener
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.comics.Comic
+import com.stathis.marvelmania.features.details.DetailsActivity
 import com.stathis.marvelmania.util.getIncrediblePhoto
 import kotlinx.android.synthetic.main.custom_marvel_toolbar.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -85,7 +88,7 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
     }
 
     private fun goToDetails(character: MarvelCharacter) {
-        val test = HomeFragmentDirections.actionDetails(character)
-        Navigation.findNavController(requireView()).navigate(test)
+        val characterJson = Gson().toJson(character)
+        startActivity(Intent(requireContext(), DetailsActivity::class.java).putExtra("CHARACTER", characterJson))
     }
 }

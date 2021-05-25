@@ -1,4 +1,4 @@
-package com.stathis.marvelmania.ui.comics
+package com.stathis.marvelmania.features.comics
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.MutableLiveData

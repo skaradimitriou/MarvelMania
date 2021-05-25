@@ -1,28 +1,29 @@
-package com.stathis.marvelmania.ui.details
+package com.stathis.marvelmania.features.details
 
 import android.util.Log
-import android.view.View
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
 import com.stathis.marvelmania.R
-import com.stathis.marvelmania.abstraction.MarvelFragment
+import com.stathis.marvelmania.abstraction.MarvelActivity
 import com.stathis.marvelmania.models.characters.MarvelCharacter
-import kotlinx.android.synthetic.main.fragment_details.*
+import kotlinx.android.synthetic.main.activity_details.*
 
-class DetailsFragment : MarvelFragment(R.layout.fragment_details) {
+class DetailsActivity : MarvelActivity(R.layout.activity_details) {
 
     private lateinit var viewModel: DetailsViewModel
     private lateinit var character: MarvelCharacter
 
-    override fun initLayout(view: View) {
+    override fun initLayout() {
         viewModel = ViewModelProvider(this).get(DetailsViewModel::class.java)
     }
 
     override fun startOperations() {
-        arguments?.let {
-            character = DetailsFragmentArgs.fromBundle(it).character
+        val characterData = intent.getStringExtra("CHARACTER")
+        character = Gson().fromJson(characterData, MarvelCharacter::class.java)
 
-            Log.d("",character.toString())
+        Log.d("CHARACTER DATA",character.toString())
+
+        character?.let {
             viewModel.charactedId = character.id
 
             viewModel.bindCharacterData(character)

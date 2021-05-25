@@ -1,4 +1,4 @@
-package com.stathis.marvelmania.ui.home
+package com.stathis.marvelmania.features.home
 
 import android.util.Log
 import android.view.View

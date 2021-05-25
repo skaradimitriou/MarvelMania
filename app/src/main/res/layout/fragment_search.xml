@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#efefef"
-    tools:context=".ui.search.SearchFragment">
+    tools:context=".features.search.SearchFragment">
 
     <include
         android:id="@+id/marvel_toolbar"

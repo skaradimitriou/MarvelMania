@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_bg"
-    tools:context=".ui.comicDetails.ComicResultsFragment">
+    tools:context=".features.comicDetails.ComicResultsFragment">
 
     <ImageView
         android:id="@+id/holder_char_details_img"

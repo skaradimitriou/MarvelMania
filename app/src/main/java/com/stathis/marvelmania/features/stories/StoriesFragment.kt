@@ -1,4 +1,4 @@
-package com.stathis.marvelmania.ui.events
+package com.stathis.marvelmania.features.stories
 
 import android.view.View
 import androidx.core.view.GravityCompat
@@ -8,10 +8,11 @@ import com.stathis.marvelmania.abstraction.MarvelFragment
 import kotlinx.android.synthetic.main.custom_marvel_toolbar.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class EventsFragment : MarvelFragment(R.layout.fragment_events) {
+
+class StoriesFragment : MarvelFragment(R.layout.fragment_stories) {
 
     override fun initLayout(view: View) {
-
+        //
     }
 
     override fun startOperations() {
@@ -27,6 +28,6 @@ class EventsFragment : MarvelFragment(R.layout.fragment_events) {
     }
 
     override fun stopOperations() {
-
+        //
     }
 }

@@ -1,4 +1,4 @@
-package com.stathis.marvelmania.ui.webview
+package com.stathis.marvelmania.features.webview
 
 import android.view.View
 import android.webkit.WebSettings

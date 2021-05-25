@@ -1,4 +1,4 @@
-package com.stathis.marvelmania.ui
+package com.stathis.marvelmania.features
 
 import android.view.MenuItem
 import android.widget.Toast
@@ -11,8 +11,7 @@ import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : MarvelActivity(R.layout.activity_main),
-    NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : MarvelActivity(R.layout.activity_main), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var navController: NavController
 

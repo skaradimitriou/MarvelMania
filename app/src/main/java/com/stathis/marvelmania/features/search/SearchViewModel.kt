@@ -1,4 +1,4 @@
-package com.stathis.marvelmania.ui.search
+package com.stathis.marvelmania.features.search
 
 import android.view.View
 import androidx.lifecycle.LifecycleOwner

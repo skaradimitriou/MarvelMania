@@ -1,12 +1,10 @@
-package com.stathis.marvelmania.ui.details
+package com.stathis.marvelmania.features.details
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.stathis.marvelmania.adapters.DetailsAdapter
-import com.stathis.marvelmania.models.MarvelModel
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.characters.ResponseModel
 import com.stathis.marvelmania.models.comics.ComicDataContainer

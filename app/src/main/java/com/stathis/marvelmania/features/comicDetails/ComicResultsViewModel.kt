@@ -1,4 +1,4 @@
-package com.stathis.marvelmania.ui.comicDetails
+package com.stathis.marvelmania.features.comicDetails
 
 import androidx.lifecycle.ViewModel
 

@@ -1,5 +1,6 @@
-package com.stathis.marvelmania.ui.search
+package com.stathis.marvelmania.features.search
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
@@ -7,15 +8,14 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
+import com.google.gson.Gson
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelFragment
 import com.stathis.marvelmania.callbacks.CharacterClickListener
 import com.stathis.marvelmania.models.characters.MarvelCharacter
-import com.stathis.marvelmania.ui.home.HomeFragmentDirections
+import com.stathis.marvelmania.features.details.DetailsActivity
 import com.stathis.marvelmania.util.TAG
 import kotlinx.android.synthetic.main.custom_marvel_toolbar.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.marvel_toolbar
 import kotlinx.android.synthetic.main.fragment_search.*
 
@@ -75,7 +75,7 @@ class SearchFragment : MarvelFragment(R.layout.fragment_search) {
     }
 
     private fun goToDetails(character: MarvelCharacter) {
-        val test = HomeFragmentDirections.actionDetails(character)
-        Navigation.findNavController(requireView()).navigate(test)
+        val characterJson = Gson().toJson(character)
+        startActivity(Intent(requireContext(), DetailsActivity::class.java).putExtra("CHARACTER", characterJson))
     }
 }
