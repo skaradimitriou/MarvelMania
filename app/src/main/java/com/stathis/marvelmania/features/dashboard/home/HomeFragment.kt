@@ -1,4 +1,4 @@
-package com.stathis.marvelmania.features.home
+package com.stathis.marvelmania.features.dashboard.home
 
 import android.content.Intent
 import android.util.Log
@@ -72,8 +72,8 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
 
         viewModel.observeData(this,object : ComicClickListener {
             override fun onComicClick(comic: Comic) {
-                val action = HomeFragmentDirections.comicDetails(comic)
-                Navigation.findNavController(requireView()).navigate(action)
+//                val action = HomeFragmentDirections.comicDetails(comic)
+//                Navigation.findNavController(requireView()).navigate(action)
             }
         })
     }
@@ -84,7 +84,7 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
     }
 
     private fun goToSearch() {
-        Navigation.findNavController(requireView()).navigate(R.id.action_search)
+//        Navigation.findNavController(requireView()).navigate(R.id.action_search)
     }
 
     private fun goToDetails(character: MarvelCharacter) {

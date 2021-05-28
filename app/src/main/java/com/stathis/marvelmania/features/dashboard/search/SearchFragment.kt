@@ -1,4 +1,4 @@
-package com.stathis.marvelmania.features.search
+package com.stathis.marvelmania.features.dashboard.search
 
 import android.content.Intent
 import android.util.Log
