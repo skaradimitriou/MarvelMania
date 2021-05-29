@@ -23,17 +23,6 @@ class ComicsFragment : MarvelFragment(R.layout.fragment_comics) {
 
     override fun startOperations() {
         viewModel.getComics()
-
-        marvel_toolbar.apply {
-            home_menu_icon.setOnClickListener {
-                //toggle menu
-                val drawer = activity?.findViewById(R.id.drawer_layout) as DrawerLayout
-                drawer.openDrawer(GravityCompat.START)
-            }
-
-            home_search_icon.visibility = View.GONE
-        }
-
         viewModel.comics.observe(this, Observer {
             Log.d("", it.toString())
             val adapter = ComicAdapter()

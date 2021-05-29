@@ -1,13 +1,11 @@
 package com.stathis.marvelmania.features.dashboard.profile
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelFragment
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : MarvelFragment(R.layout.fragment_profile) {
 
@@ -17,7 +15,10 @@ class ProfileFragment : MarvelFragment(R.layout.fragment_profile) {
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
     }
 
-    override fun startOperations() {}
+    override fun startOperations() {
+        val url = "https://eleftherostypos.gr/wp-content/uploads/2017/11/thor-ragnarok-marvel.png"
+        Glide.with(this).load(url).into(profile_image)
+    }
 
     override fun stopOperations() {}
 }
