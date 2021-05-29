@@ -30,15 +30,6 @@ class SearchFragment : MarvelFragment(R.layout.fragment_search) {
     override fun startOperations() {
         search_results.adapter = viewModel.adapter
 
-        marvel_toolbar.apply {
-            home_menu_icon.setOnClickListener {
-                val drawer = activity?.findViewById(R.id.drawer_layout) as DrawerLayout
-                drawer.openDrawer(GravityCompat.START)
-            }
-
-            home_search_icon.visibility = View.GONE
-        }
-
         search_searchbar.setOnClickListener {
             search_searchbar.isIconified = false
         }

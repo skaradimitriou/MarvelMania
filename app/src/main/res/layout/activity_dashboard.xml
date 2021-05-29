@@ -12,23 +12,33 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_menu"
+        app:layout_constraintBottom_toTopOf="@id/custom_bottom_nav"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/app_navigation" />
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_menu" />
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottom_navigation_menu"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        app:itemIconTint="@color/white"-->
+<!--        app:itemTextColor="@color/white"-->
+<!--        app:labelVisibilityMode="labeled"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:menu="@menu/app_menu" />-->
+
+   <com.iammert.library.readablebottombar.ReadableBottomBar
+       android:id="@+id/custom_bottom_nav"
+       android:layout_width="match_parent"
+       android:layout_height="56dp"
+       app:rbb_indicatorColor="#ed1d24"
+       app:rbb_indicatorHeight="5dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:rbb_tabs="@xml/tabs"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

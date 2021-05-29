@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/nav_home"
+        drawable="@drawable/home_icon_white"
+        text="@string/nav_home" />
+
+    <tab
+        id="@+id/nav_search"
+        drawable="@drawable/search_icon_white"
+        text="@string/nav_search" />
+
+    <tab
+        id="@+id/nav_profile"
+        drawable="@drawable/profile_icon_white"
+        text="@string/nav_profile" />
+</tabs>

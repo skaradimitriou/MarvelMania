@@ -12,6 +12,7 @@
     <!-- Menu -->
     <string name="nav_home">Home</string>
     <string name="nav_search">Search</string>
+    <string name="nav_profile">Profile</string>
     <string name="main_categories">Main Categories</string>
     <string name="nav_comics">Comics</string>
     <string name="nav_events">Events</string>

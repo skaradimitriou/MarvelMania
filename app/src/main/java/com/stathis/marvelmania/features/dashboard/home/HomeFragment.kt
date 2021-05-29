@@ -34,18 +34,6 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
 
         home_comic_recycler.adapter = viewModel.adapter
 
-        marvel_toolbar.apply {
-            home_menu_icon.setOnClickListener {
-                //toggle menu
-                val drawer = activity?.findViewById(R.id.drawer_layout) as DrawerLayout
-                drawer.openDrawer(GravityCompat.START)
-            }
-
-            home_search_icon.setOnClickListener {
-                goToSearch()
-            }
-        }
-
         learn_more_btn.setOnClickListener {
             goToDetails(character)
         }
@@ -72,8 +60,7 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
 
         viewModel.observeData(this,object : ComicClickListener {
             override fun onComicClick(comic: Comic) {
-//                val action = HomeFragmentDirections.comicDetails(comic)
-//                Navigation.findNavController(requireView()).navigate(action)
+
             }
         })
     }
@@ -81,10 +68,6 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
     private fun removeObservers() {
         viewModel.data.removeObservers(this)
         viewModel.comics.removeObservers(this)
-    }
-
-    private fun goToSearch() {
-//        Navigation.findNavController(requireView()).navigate(R.id.action_search)
     }
 
     private fun goToDetails(character: MarvelCharacter) {

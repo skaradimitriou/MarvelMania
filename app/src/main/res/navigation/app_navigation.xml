@@ -3,20 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_navigation.xml"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/nav_home">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/nav_home"
         android:name="com.stathis.marvelmania.features.dashboard.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home"></fragment>
+        tools:layout="@layout/fragment_home"/>
 
     <fragment
         android:id="@+id/nav_search"
         android:name="com.stathis.marvelmania.features.dashboard.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
-    </fragment>
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.stathis.marvelmania.features.dashboard.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/comicsFragment"
@@ -34,6 +39,7 @@
         android:name="com.stathis.marvelmania.features.stories.StoriesFragment"
         android:label="fragment_stories"
         tools:layout="@layout/fragment_stories" />
+
     <fragment
         android:id="@+id/comicResultsFragment"
         android:name="com.stathis.marvelmania.features.comicDetails.ComicResultsFragment"
