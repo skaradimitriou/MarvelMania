@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#eee"
+    android:layout_marginTop="@dimen/padding_10">
+
+    <TextView
+        android:id="@+id/favorite_caterory_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_10"
+        android:text="This is a category"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/fav_category_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/fav_category_arrow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/arrow_right"
+        android:backgroundTint="@color/marvel_red"
+        app:layout_constraintBottom_toBottomOf="@id/favorite_caterory_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/favorite_caterory_header" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

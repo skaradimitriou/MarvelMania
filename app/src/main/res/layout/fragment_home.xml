@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/iron_man_wp" />
+        tools:src="@drawable/iron_man_wp" />
 
     <View
         android:layout_width="match_parent"
@@ -21,10 +21,16 @@
         android:alpha="0.3"
         android:background="@color/dark_bg" />
 
-    <include android:id="@+id/marvel_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/custom_marvel_toolbar"/>
+    <ImageView
+        android:id="@+id/marvel_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/margin_16"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/marvel_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/home_popular_header"
@@ -33,7 +39,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_10"
         app:layout_constraintBottom_toBottomOf="@id/home_comic_header"
-        app:layout_constraintTop_toTopOf="@id/marvel_toolbar"
+        app:layout_constraintTop_toTopOf="@id/marvel_logo"
         tools:text="@string/iron_man" />
 
     <View
@@ -70,31 +76,8 @@
         android:orientation="horizontal"
         android:paddingBottom="@dimen/padding_20"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/load_more_txt"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/holder_marvel_comic_home_item" />
-
-    <TextView
-        android:id="@+id/load_more_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_10"
-        android:text="@string/load_more"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/home_arrow_down_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/home_arrow_down_btn"
-        android:layout_width="@dimen/padding_20"
-        android:layout_height="@dimen/padding_20"
-        android:layout_marginBottom="@dimen/padding_10"
-        android:alpha="0.7"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/down_arrow"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

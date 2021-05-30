@@ -13,6 +13,7 @@ import com.google.gson.Gson
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelFragment
 import com.stathis.marvelmania.callbacks.ComicClickListener
+import com.stathis.marvelmania.features.comicDetails.ComicDetailsActivity
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.comics.Comic
 import com.stathis.marvelmania.features.details.DetailsActivity
@@ -60,7 +61,9 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
 
         viewModel.observeData(this,object : ComicClickListener {
             override fun onComicClick(comic: Comic) {
-
+                //logic -> go to ComicDetails
+                val comicData = Gson().toJson(character)
+                startActivity(Intent(requireContext(), ComicDetailsActivity::class.java).putExtra("COMIC", comicData))
             }
         })
     }

@@ -25,7 +25,6 @@ class DetailsActivity : MarvelActivity(R.layout.activity_details) {
 
         character?.let {
             viewModel.charactedId = character.id
-
             viewModel.bindCharacterData(character)
         }
 

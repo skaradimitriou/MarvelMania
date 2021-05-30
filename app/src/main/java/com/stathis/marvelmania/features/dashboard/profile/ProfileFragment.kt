@@ -18,6 +18,8 @@ class ProfileFragment : MarvelFragment(R.layout.fragment_profile) {
     override fun startOperations() {
         val url = "https://eleftherostypos.gr/wp-content/uploads/2017/11/thor-ragnarok-marvel.png"
         Glide.with(this).load(url).into(profile_image)
+
+        favorites_recycler.adapter = viewModel.adapter
     }
 
     override fun stopOperations() {}
