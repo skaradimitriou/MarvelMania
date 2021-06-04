@@ -23,14 +23,12 @@
 
     <ImageView
         android:id="@+id/marvel_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginTop="@dimen/margin_16"
-        android:contentDescription="@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_60"
+        android:padding="@dimen/padding_10"
         android:src="@drawable/marvel_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/home_popular_header"

@@ -1,5 +1,6 @@
 package com.stathis.marvelmania.adapters
 
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import com.stathis.marvelmania.R
@@ -22,7 +23,8 @@ class MainScreenViewHolder(itemView : View,callback : ItemClickListener) : Marve
 
             is Comic -> {
                 val imagePath = "${data.thumbnail.path}/portrait_medium.${data.thumbnail.extension}"
-                Glide.with(itemView).load(imagePath).placeholder(R.drawable.comic_background).into(itemView.home_comic_img)
+                Log.d("TAG",imagePath)
+                Glide.with(itemView).load(imagePath).into(itemView.home_comic_img)
             }
         }
     }

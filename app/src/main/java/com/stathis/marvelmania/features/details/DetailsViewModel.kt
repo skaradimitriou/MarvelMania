@@ -1,10 +1,12 @@
 package com.stathis.marvelmania.features.details
 
+import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.stathis.marvelmania.adapters.DetailsAdapter
+import com.stathis.marvelmania.callbacks.DetailsClickListener
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.characters.ResponseModel
 import com.stathis.marvelmania.models.comics.ComicDataContainer
@@ -19,7 +21,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DetailsViewModel : ViewModel() {
+class DetailsViewModel : ViewModel(), DetailsClickListener {
 
     val data = MutableLiveData<ResponseModel?>()
     val comics = MutableLiveData<ComicDataContainer?>()
@@ -28,10 +30,15 @@ class DetailsViewModel : ViewModel() {
     val stories = MutableLiveData<StoryDataContainer?>()
     var charactedId = 0
 
-    val adapter = DetailsAdapter()
+    private lateinit var callback: DetailsClickListener
+    val adapter = DetailsAdapter(this)
 
     init {
         getCharacterData()
+    }
+
+    fun initListener(callback : DetailsClickListener){
+        this.callback = callback
     }
 
     fun bindCharacterData(character: MarvelCharacter) {
@@ -57,5 +64,13 @@ class DetailsViewModel : ViewModel() {
         events.removeObservers(owner)
         series.removeObservers(owner)
         stories.removeObservers(owner)
+    }
+
+    override fun onBackBtnClick() {
+        callback.onBackBtnClick()
+    }
+
+    override fun onShareBtnClick() {
+        callback.onShareBtnClick()
     }
 }
