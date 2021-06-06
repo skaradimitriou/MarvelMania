@@ -12,7 +12,11 @@ class RegisterActivity : MarvelActivity(R.layout.activity_register) {
         viewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
     }
 
-    override fun startOperations() {}
+    override fun startOperations() {
 
-    override fun stopOperations() {}
+    }
+
+    override fun stopOperations() {
+
+    }
 }

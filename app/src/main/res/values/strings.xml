@@ -23,6 +23,14 @@
     <string name="popular_marvel_comics">Popular Marvel Comics</string>
     <string name="popular_marvel_events">Popular Marvel Events</string>
     <string name="popular_marvel_heroes">Popular Marvel Heroes</string>
+    <string name="app_desc">An application that consumes data <br> from the Marvel API </br></string>
+    <string name="dont_have_account">Don\'t have an account? <b>Sign up</b></string>
 
+    <string name="wrong_email">Your email seems to be incorrect</string>
+    <string name="wrong_password">Your password seems to be incorrect</string>
+    <string name="e_mail_hint">E-mail</string>
+    <string name="pass_hint">Password</string>
+    <string name="login_btn_text">Login</string>
+    <string name="forgot_your_password">Forgot your password?</string>
 
 </resources>

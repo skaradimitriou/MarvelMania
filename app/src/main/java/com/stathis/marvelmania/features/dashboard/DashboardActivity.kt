@@ -30,4 +30,8 @@ class DashboardActivity : MarvelActivity(R.layout.activity_dashboard) {
     }
 
     override fun stopOperations() {}
+
+    override fun onBackPressed() {
+        //logout if you want to leave
+    }
 }

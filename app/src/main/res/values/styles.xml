@@ -7,6 +7,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="splash_screen_header" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="splash_screen_desc" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="homepage_header" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">34sp</item>
@@ -16,6 +27,18 @@
     <style name="homepage_comic_header" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="marvel_login_title" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="marvel_login_h5" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">@dimen/padding_10</item>
+        <item name="android:gravity">center_horizontal</item>
     </style>
 
     <!-- Buttons -->

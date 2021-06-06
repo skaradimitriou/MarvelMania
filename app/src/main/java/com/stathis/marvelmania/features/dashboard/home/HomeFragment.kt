@@ -28,13 +28,6 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
     }
 
     override fun startOperations() {
-        /*
-         As a user I want a screen that has a listOf:
-         ->  marvel characters
-         ->  marvel stories
-         ->  marvel events (?)
-         */
-
         viewModel.getResultsFromApi()
 
         home_comic_recycler.adapter = viewModel.adapter

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import com.stathis.marvelmania.adapters.MainScreenAdapter
 import com.stathis.marvelmania.callbacks.HomeClickListener
 import com.stathis.marvelmania.callbacks.ItemClickListener
+import com.stathis.marvelmania.models.ShimmerObject
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.characters.ResponseModel
 import com.stathis.marvelmania.models.comics.Comic
@@ -31,8 +32,18 @@ class HomeViewModel() : ViewModel(), ItemClickListener {
     val adapter = MainScreenAdapter(this)
     val heroAdapter = MainScreenAdapter(this)
     val eventsAdapter = MainScreenAdapter(this)
-    val storiesAdapter = MainScreenAdapter(this)
-    private lateinit var callback : HomeClickListener
+    private lateinit var callback: HomeClickListener
+
+    init {
+        adapter.submitList(
+            listOf(
+                ShimmerObject(),
+                ShimmerObject(),
+                ShimmerObject(),
+                ShimmerObject()
+            )
+        )
+    }
 
     fun getResultsFromApi() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -60,20 +71,21 @@ class HomeViewModel() : ViewModel(), ItemClickListener {
         comics.postValue(serviceData?.data)
     }
 
-    fun observeData(owner : LifecycleOwner,callback : HomeClickListener){
+    fun observeData(owner: LifecycleOwner, callback: HomeClickListener) {
         this.callback = callback
         comics.observe(owner, Observer {
-            Log.d(TAG,it.toString())
+            Log.d(TAG, it.toString())
             adapter.submitList(it?.results)
+            adapter.notifyDataSetChanged()
         })
 
         heroes.observe(owner, Observer {
-            Log.d(TAG,it.toString())
+            Log.d(TAG, it.toString())
             heroAdapter.submitList(it?.results)
         })
 
         events.observe(owner, Observer {
-            Log.d(TAG,it.toString())
+            Log.d(TAG, it.toString())
             eventsAdapter.submitList(it?.results)
         })
     }
