@@ -2,6 +2,7 @@ package com.stathis.marvelmania.network
 
 import com.stathis.marvelmania.models.characters.MainResponseModel
 import com.stathis.marvelmania.models.comics.ComicDataWrapper
+import com.stathis.marvelmania.models.events.EventDataContainer
 import com.stathis.marvelmania.models.events.EventDataWrapper
 import com.stathis.marvelmania.models.series.SeriesDataWrapper
 import com.stathis.marvelmania.models.stories.StoryDataContainer
@@ -111,7 +112,7 @@ interface MarvelApi {
         @Query("ts") ts: String,
         @Query("apikey") apiKey: String,
         @Query("hash") hash: String
-    ): Response<MainResponseModel>
+    ): Response<EventDataWrapper>
 
     /*
     *  Series Api Endpoints bellow
@@ -133,5 +134,5 @@ interface MarvelApi {
         @Query("ts") ts: String,
         @Query("apikey") apiKey: String,
         @Query("hash") hash: String
-    ): Response<MainResponseModel>
+    ): Response<StoryDataWrapper>
 }

@@ -1,6 +1,7 @@
 package com.stathis.marvelmania.models.stories
 
 import android.os.Parcelable
+import com.stathis.marvelmania.models.MarvelModel
 import com.stathis.marvelmania.models.series.SeriesDataContainer
 import kotlinx.android.parcel.Parcelize
 
@@ -10,4 +11,4 @@ class StoryDataWrapper(
     val status: String,
     val copyright: String,
     val data: StoryDataContainer
-) : Parcelable
+) : MarvelModel, Parcelable

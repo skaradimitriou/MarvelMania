@@ -3,22 +3,19 @@ package com.stathis.marvelmania.features.dashboard.home
 import android.content.Intent
 import android.util.Log
 import android.view.View
-import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelFragment
-import com.stathis.marvelmania.callbacks.ComicClickListener
+import com.stathis.marvelmania.callbacks.HomeClickListener
 import com.stathis.marvelmania.features.comicDetails.ComicDetailsActivity
 import com.stathis.marvelmania.models.characters.MarvelCharacter
 import com.stathis.marvelmania.models.comics.Comic
 import com.stathis.marvelmania.features.details.DetailsActivity
-import com.stathis.marvelmania.util.getIncrediblePhoto
-import kotlinx.android.synthetic.main.custom_marvel_toolbar.*
+import com.stathis.marvelmania.models.events.Event
+import com.stathis.marvelmania.models.stories.Story
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : MarvelFragment(R.layout.fragment_home) {
@@ -31,13 +28,18 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
     }
 
     override fun startOperations() {
+        /*
+         As a user I want a screen that has a listOf:
+         ->  marvel characters
+         ->  marvel stories
+         ->  marvel events (?)
+         */
+
         viewModel.getResultsFromApi()
 
         home_comic_recycler.adapter = viewModel.adapter
-
-        learn_more_btn.setOnClickListener {
-            goToDetails(character)
-        }
+        home_heroes_recycler.adapter = viewModel.heroAdapter
+        home_events_recycler.adapter = viewModel.eventsAdapter
 
         observeData()
     }
@@ -47,34 +49,36 @@ class HomeFragment : MarvelFragment(R.layout.fragment_home) {
     }
 
     private fun observeData() {
-        viewModel.data.observe(this, Observer {
+        viewModel.heroes.observe(this, Observer {
             Log.d("", it.toString())
             it?.let {
                 character = it.results.first()
-                home_popular_header.text = it.results.first().name
-                home_comic_header.text = getString(R.string.popular_comics_home, it.results.first().name)
-
-                val imagePath = getIncrediblePhoto(it.results.first().thumbnail.path,it.results.first().thumbnail.extension)
-                Glide.with(this).load(imagePath).into(home_popular_img)
             }
         })
 
-        viewModel.observeData(this,object : ComicClickListener {
-            override fun onComicClick(comic: Comic) {
-                //logic -> go to ComicDetails
-                val comicData = Gson().toJson(character)
-                startActivity(Intent(requireContext(), ComicDetailsActivity::class.java).putExtra("COMIC", comicData))
-            }
+        viewModel.observeData(this,object : HomeClickListener {
+            override fun onComicClick(comic: Comic) = goToComicDetails(comic)
+            override fun onHeroClick(hero: MarvelCharacter) = goToDetails(hero)
+            override fun onEventClick(event: Event) = goToEvents(event)
         })
     }
 
     private fun removeObservers() {
-        viewModel.data.removeObservers(this)
+        viewModel.heroes.removeObservers(this)
         viewModel.comics.removeObservers(this)
     }
 
     private fun goToDetails(character: MarvelCharacter) {
         val characterJson = Gson().toJson(character)
         startActivity(Intent(requireContext(), DetailsActivity::class.java).putExtra("CHARACTER", characterJson))
+    }
+
+    private fun goToComicDetails(comic : Comic){
+        val comicData = Gson().toJson(comic)
+        startActivity(Intent(requireContext(), ComicDetailsActivity::class.java).putExtra("COMIC", comicData))
+    }
+
+    private fun goToEvents(event: Event) {
+        Toast.makeText(requireContext(), event.title, Toast.LENGTH_LONG).show()
     }
 }
