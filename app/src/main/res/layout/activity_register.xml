@@ -4,6 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/margin_16"
+    android:background="@color/dark_bg"
     tools:context=".features.register.RegisterActivity">
+
+    <ImageView
+        android:id="@+id/register_img"
+        android:layout_width="@dimen/image_150"
+        android:layout_height="@dimen/dimen_70"
+        android:layout_marginTop="@dimen/dimen_50"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/marvel_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_20"
+        android:hint="@string/e_mail_hint"
+        app:layout_constraintTop_toBottomOf="@id/register_img">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:hint="@string/pass_hint"
+        app:layout_constraintTop_toBottomOf="@id/emailField">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pass_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passVerifyField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:hint="@string/pass_conf_hint"
+        app:layout_constraintTop_toBottomOf="@id/passField">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pass_conf_input_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_56"
+        android:layout_marginBottom="@dimen/padding_20"
+        android:text="@string/create_account_btn_text"
+        android:backgroundTint="@color/marvel_red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,5 +32,7 @@
     <string name="pass_hint">Password</string>
     <string name="login_btn_text">Login</string>
     <string name="forgot_your_password">Forgot your password?</string>
+    <string name="pass_conf_hint">Confirm password</string>
+    <string name="create_account_btn_text">Create Account</string>
 
 </resources>
