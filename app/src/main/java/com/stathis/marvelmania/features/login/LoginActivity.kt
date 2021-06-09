@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.stathis.marvelmania.R
 import com.stathis.marvelmania.abstraction.MarvelActivity
 import com.stathis.marvelmania.features.dashboard.DashboardActivity
+import com.stathis.marvelmania.features.forgotPassword.ForgotPasswordActivity
 import com.stathis.marvelmania.features.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -32,11 +33,8 @@ class LoginActivity : MarvelActivity(R.layout.activity_login) {
         }
 
         forgot_password.setOnClickListener{
-            /*
-            As a user I want to be able to reset my account if I have forgotten it
-             */
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
-
 
         viewModel.userAuthenticated.observe(this, Observer{
             when(it){

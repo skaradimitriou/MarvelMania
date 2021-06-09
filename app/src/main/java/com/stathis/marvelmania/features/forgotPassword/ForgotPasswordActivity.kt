@@ -28,8 +28,8 @@ class ForgotPasswordActivity : MarvelActivity(R.layout.activity_forgot_password)
         viewModel.userVerified.observe(this, Observer{
             when (it) {
                 true -> {
-                    //do something
                     startActivity(Intent(this, LoginActivity::class.java))
+                    finish()
                 }
                 false -> Toast.makeText(this,"User does not exist", Toast.LENGTH_LONG).show()
             }

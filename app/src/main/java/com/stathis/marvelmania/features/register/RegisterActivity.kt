@@ -50,9 +50,6 @@ class RegisterActivity : MarvelActivity(R.layout.activity_register) {
     }
 
     private fun throwRegisterErrors() {
-        /*
-        As a user I want to be notified about the fact that my passwords might not match
-         */
         pass_input_field.error = resources.getString(R.string.wrong_password)
         pass_conf_input_field.error = resources.getString(R.string.wrong_password)
     }

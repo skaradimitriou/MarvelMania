@@ -37,5 +37,7 @@
     <string name="reset_my_account">Reset my Account</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="forgot_pass_desc">Enter your e-mail bellow and we will send you a reset code</string>
+    <string name="profile_dummy_email">stathis.email@domain.com</string>
+    <string name="profile_dummy_username">stathis.kar</string>
 
 </resources>
